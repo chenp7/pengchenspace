@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BambuLab to Snapmaker U1 3MF Converter</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <p class="eyebrow">3MF CONVERTER</p>
+      <h1 class="title">BambuLab to Snapmaker U1</h1>
+      <p class="subtitle">No backend required. Your file is converted directly in your browser.</p>
+
+      <div class="chips">
+        <span>Geometry preserved</span>
+        <span>Color data retained</span>
+        <span>Ready for GitHub Pages</span>
+      </div>
+
+      <div id="alert" class="alert hidden"></div>
+
+      <div class="controls">
+        <label for="file" class="dropzone" id="dropzone">
+          <div class="upload-icon">UP</div>
+          <p><strong>Click to upload</strong> or drag and drop</p>
+          <p class="hint">Only .3mf files</p>
+          <p class="filename" id="filename">No file selected</p>
+        </label>
+        <input id="file" type="file" accept=".3mf" />
+        <button id="convertBtn" type="button" disabled>Convert and Download</button>
+      </div>
+
+      <p id="status" class="status">Waiting for a .3mf file.</p>
+    </section>
+  </main>
+</body>
+</html>

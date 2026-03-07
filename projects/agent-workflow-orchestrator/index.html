@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agent workflow orchestrator case study.">
+  <title>Agent Workflow Orchestrator | Projects</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../../index.html">Peng Chen</a>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav-link href="/index.html">Home</a>
+        <a data-nav-link href="/projects/index.html">Projects</a>
+        <a data-nav-link href="/resume.html">Resume</a>
+        <a data-nav-link href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero reveal">
+      <p class="kicker">AI · Agents · Prototype</p>
+      <h1>Agent Workflow Orchestrator</h1>
+      <p class="lead">Built a workflow orchestrator for multi-step agent tasks where tool calls, retries, and checkpoints are explicit and observable.</p>
+    </section>
+
+    <section class="section reveal cards">
+      <article class="card">
+        <h2>Problem</h2>
+        <p>Single-pass agent execution made failures hard to debug and recovery inconsistent during longer task chains.</p>
+      </article>
+      <article class="card">
+        <h2>Design</h2>
+        <ul>
+          <li>State machine for planning, tool execution, validation, and retry phases</li>
+          <li>Tool wrappers with timeout, schema validation, and standardized error surfaces</li>
+          <li>Event log for each transition to support traceability</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Outcome</h2>
+        <p>Improved successful completion rates in test workflows and cut manual debugging time through structured run logs.</p>
+      </article>
+    </section>
+
+    <p><a class="btn" href="../index.html">Back to All Projects</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Prototype aimed at reliable integration of agentic behavior in real products.</div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>

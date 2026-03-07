@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RAG knowledge assistant case study.">
+  <title>RAG Knowledge Assistant | Projects</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../../index.html">Peng Chen</a>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav-link href="/index.html">Home</a>
+        <a data-nav-link href="/projects/index.html">Projects</a>
+        <a data-nav-link href="/resume.html">Resume</a>
+        <a data-nav-link href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero reveal">
+      <p class="kicker">AI · RAG · In Progress</p>
+      <h1>RAG Knowledge Assistant</h1>
+      <p class="lead">Designed a retrieval-augmented assistant to answer from documentation corpora with citations, confidence signals, and fallback behavior.</p>
+    </section>
+
+    <section class="section reveal cards">
+      <article class="card">
+        <h2>Architecture</h2>
+        <ul>
+          <li>Document ingest and semantic chunking pipeline</li>
+          <li>Vector + keyword hybrid retrieval</li>
+          <li>Reranking before answer synthesis</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Reliability Work</h2>
+        <ul>
+          <li>Grounded-response templates with source citations</li>
+          <li>Low-confidence threshold triggers clarifying prompts</li>
+          <li>Offline eval set for retrieval quality checks</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Current Result</h2>
+        <p>Meaningfully improved answer grounding quality in internal tests, with fewer unsupported responses in ambiguous queries.</p>
+      </article>
+    </section>
+
+    <p><a class="btn" href="../index.html">Back to All Projects</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Active project focused on practical RAG quality and maintainability.</div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>

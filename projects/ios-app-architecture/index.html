@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="iOS modular architecture migration case study.">
+  <title>iOS Modular Architecture Migration | Projects</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../../index.html">Peng Chen</a>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav-link href="/index.html">Home</a>
+        <a data-nav-link href="/projects/index.html">Projects</a>
+        <a data-nav-link href="/resume.html">Resume</a>
+        <a data-nav-link href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero reveal">
+      <p class="kicker">iOS · Shipped</p>
+      <h1>iOS Modular Architecture Migration</h1>
+      <p class="lead">Refactored a legacy iOS codebase into feature modules and cleaner service boundaries to improve release confidence and maintenance speed.</p>
+    </section>
+
+    <section class="section reveal cards">
+      <article class="card">
+        <h2>Context</h2>
+        <p>A growing app suffered from tangled dependencies, slow debug cycles, and unstable release branches.</p>
+      </article>
+      <article class="card">
+        <h2>Approach</h2>
+        <ul>
+          <li>Introduced feature modules and protocol-first boundaries.</li>
+          <li>Split shared services into reusable domain components.</li>
+          <li>Added targeted integration tests for high-risk flows.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Outcome</h2>
+        <ul>
+          <li>Reduced recurrent release regression issues by about 30% over two release cycles.</li>
+          <li>Improved onboarding speed for new contributors through clearer module ownership.</li>
+        </ul>
+      </article>
+    </section>
+
+    <p><a class="btn" href="../index.html">Back to All Projects</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Case-study style summary based on practical architecture patterns.</div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>

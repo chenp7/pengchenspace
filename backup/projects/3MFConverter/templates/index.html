@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bambu to Snapmaker U1 Converter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <main class="page">
+    <section class="stack">
+      <section class="card">
+        <p class="eyebrow">3MF CONVERTER</p>
+        <h1 class="title">BambuLab to Snapmaker U1</h1>
+        <p class="subtitle">Upload one file, patch compatibility settings, and download a ready-to-open Snapmaker U1 project.</p>
+
+        <div class="chips">
+          <span>Geometry preserved</span>
+          <span>Color data retained</span>
+          <span>Fast local conversion</span>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert">
+          {% for message in messages %}
+          <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('convert') }}" method="post" enctype="multipart/form-data">
+          <label for="file" class="dropzone" id="dropzone">
+            <div class="upload-icon">UP</div>
+            <p><strong>Click to upload</strong> or drag and drop</p>
+            <p class="hint">Only .3mf files</p>
+            <p class="filename" id="filename">No file selected</p>
+          </label>
+          <input id="file" type="file" name="file" accept=".3mf" required />
+          <button type="submit">Convert and Download</button>
+        </form>
+
+        <p class="footnote">Files are processed during request handling and returned immediately as download.</p>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">PNG TO SVG</p>
+        <h2 class="title">Color-Separated Sketch Export</h2>
+        <p class="subtitle">Quantize a PNG into a limited palette and export closed vector regions per color for Autodesk Fusion sketch import and later BambuLab color assignment.</p>
+
+        <div class="chips">
+          <span>Default 4 colors</span>
+          <span>Separate vector layers</span>
+          <span>Noise filtering</span>
+        </div>
+
+        <form action="{{ url_for('vectorize') }}" method="post" enctype="multipart/form-data">
+          <label for="png_file" class="dropzone" id="png-dropzone">
+            <div class="upload-icon">SVG</div>
+            <p><strong>Click to upload</strong> or drag and drop</p>
+            <p class="hint">Only .png files</p>
+            <p class="filename" id="png-filename">No file selected</p>
+          </label>
+          <input id="png_file" type="file" name="png_file" accept=".png,image/png" required />
+
+          <div class="field-row">
+            <label class="field">
+              <span>Colors</span>
+              <input type="number" name="colors" min="2" max="16" value="4" />
+            </label>
+            <label class="field">
+              <span>Min region pixels</span>
+              <input type="number" name="min_region_pixels" min="1" max="5000" value="8" />
+            </label>
+          </div>
+
+          <button type="submit">Convert PNG to SVG</button>
+        </form>
+
+        <p class="footnote">Each quantized color is emitted as its own grouped SVG path so Fusion can import closed profiles and BambuLab can be recolored downstream.</p>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    function bindDropzone(inputId, dropzoneId, filenameId) {
+      const input = document.getElementById(inputId);
+      const dropzone = document.getElementById(dropzoneId);
+      const filename = document.getElementById(filenameId);
+
+      input.addEventListener("change", () => {
+        filename.textContent = input.files.length ? input.files[0].name : "No file selected";
+      });
+
+      dropzone.addEventListener("dragover", (event) => {
+        event.preventDefault();
+        dropzone.classList.add("active");
+      });
+
+      dropzone.addEventListener("dragleave", () => {
+        dropzone.classList.remove("active");
+      });
+
+      dropzone.addEventListener("drop", (event) => {
+        event.preventDefault();
+        dropzone.classList.remove("active");
+        if (!event.dataTransfer.files.length) return;
+        input.files = event.dataTransfer.files;
+        filename.textContent = input.files[0].name;
+      });
+    }
+
+    bindDropzone("file", "dropzone", "filename");
+    bindDropzone("png_file", "png-dropzone", "png-filename");
+  </script>
+</body>
+</html>
